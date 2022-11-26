@@ -72,7 +72,7 @@ export const BannerShopButton = styled(Button, {
   fontWeight: "bold",
   fontSize: "16px",
   [theme.breakpoints.down("sm")]: {
-    padding: "10px 0px",
+    padding: "10px 55px",
     fontSize: "14px",
   },
 }));

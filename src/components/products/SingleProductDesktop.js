@@ -38,12 +38,12 @@ export default function SingleProductDesktop({ product, matches }) {
         <ProductFavButton isFav={0}>
           <FavoriteIcon />
         </ProductFavButton>
-        {showOptions && (
+        {(showOptions || matches) && (
           <ProductAddToCart show={showOptions} variant="contained">
             Add to cart
           </ProductAddToCart>
         )}
-        <ProductActionsWrapper show={showOptions}>
+        <ProductActionsWrapper show={showOptions || matches}>
           <Stack direction="column">
             <ProductActionButton>
               <ShareIcon color="primary" />

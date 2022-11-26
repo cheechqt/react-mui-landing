@@ -11,8 +11,16 @@ import {
   ProductAddToCart,
 } from "styles/products";
 import ProductMeta from "./ProductMeta";
+import useDialogModal from "hooks/useDialogModal";
+import ProductDetail from "components/productDetail";
 
 export default function SingleProduct({ product, matches }) {
+  const [
+    ProductDetailDialog,
+    showProductDetailDialog,
+    closeProductDetailDialog,
+  ] = useDialogModal(ProductDetail);
+
   return (
     <>
       <Product>
@@ -26,13 +34,14 @@ export default function SingleProduct({ product, matches }) {
             <ProductActionButton>
               <ShareIcon color="primary" />
             </ProductActionButton>
-            <ProductActionButton>
+            <ProductActionButton onClick={() => showProductDetailDialog()}>
               <FitScreenIcon color="primary" />
             </ProductActionButton>
           </Stack>
         </ProductActionsWrapper>
       </Product>
       <ProductAddToCart variant="container">Add to cart</ProductAddToCart>
+      <ProductDetailDialog product={product} />
     </>
   );
 }

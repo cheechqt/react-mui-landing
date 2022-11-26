@@ -12,9 +12,17 @@ import {
   ProductAddToCart,
 } from "styles/products";
 import ProductMeta from "./ProductMeta";
+import useDialogModal from "hooks/useDialogModal";
+import ProductDetail from "components/productDetail";
 
 export default function SingleProductDesktop({ product, matches }) {
   const [showOptions, setShowOptions] = useState(false);
+
+  const [
+    ProductDetailDialog,
+    showProductDetailDialog,
+    closeProductDetailDialog,
+  ] = useDialogModal(ProductDetail);
 
   const handleMouseEnter = () => {
     setShowOptions(true);
@@ -40,13 +48,14 @@ export default function SingleProductDesktop({ product, matches }) {
             <ProductActionButton>
               <ShareIcon color="primary" />
             </ProductActionButton>
-            <ProductActionButton>
+            <ProductActionButton onClick={() => showProductDetailDialog()}>
               <FitScreenIcon color="primary" />
             </ProductActionButton>
           </Stack>
         </ProductActionsWrapper>
       </Product>
       <ProductMeta product={product} matches={matches} />
+      <ProductDetailDialog product={product} />
     </>
   );
 }

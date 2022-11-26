@@ -1,11 +1,18 @@
-import { Grid, List, ListItemText, Stack, Typography } from "@mui/material";
+import {
+  Button,
+  Grid,
+  List,
+  ListItemText,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import { FooterTitle, SubscribeTf } from "styles/footer";
 import { Colors } from "styles/theme";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import SendIcon from "@mui/icons-material/Send"
+import SendIcon from "@mui/icons-material/Send";
 
 export default function Footer() {
   return (
@@ -71,7 +78,7 @@ export default function Footer() {
             </ListItemText>
           </List>
         </Grid>
-        <Grid md={6} lg={2}>
+        <Grid item md={6} lg={2}>
           <FooterTitle variant="body1">My Account</FooterTitle>
           <List>
             <ListItemText>
@@ -109,13 +116,16 @@ export default function Footer() {
               color="primary"
               label="Email address"
               variant="standard"
+            />
+
+            <Button
+              startIcon={<SendIcon sx={{ color: Colors.white }} />}
+              sx={{ mt: 4, mb: 4 }}
+              variant="contained"
             >
-              <Button
-                startIcon={<SendIcon sx={{ color: Colors.white }} />}
-                sx={{ mt: 4, mb: 4 }}
-                variant="contained">
-                Subscribe</Button>
-            </SubscribeTf>
+              Subscribe
+            </Button>
+          </Stack>
         </Grid>
       </Grid>
     </Box>
